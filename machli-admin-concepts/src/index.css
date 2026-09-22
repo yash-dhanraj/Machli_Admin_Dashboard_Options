@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  /* Machli brand palette — deep navy / ocean blue / teal */
+  --color-navy-950: #051323;
+  --color-navy-900: #071c33;
+  --color-navy-800: #0b2740;
+  --color-navy-700: #113250;
+  --color-navy-600: #17436b;
+  --color-navy-500: #1e5686;
+
+  --color-ocean-600: #0b6fa8;
+  --color-ocean-500: #0e84c6;
+  --color-ocean-400: #2ba0dd;
+
+  --color-teal-600: #0c8f83;
+  --color-teal-500: #12a99b;
+  --color-teal-400: #2ec4b6;
+
+  --color-surface: #f5f8fa;
+  --color-surface-alt: #eef3f6;
+
+  --color-status-success: #178a4c;
+  --color-status-success-bg: #e5f5ec;
+  --color-status-warning: #b8720c;
+  --color-status-warning-bg: #fdf1de;
+  --color-status-danger: #c22b2b;
+  --color-status-danger-bg: #fbe8e8;
+  --color-status-info: #0e6fa8;
+  --color-status-info-bg: #e6f2fa;
+  --color-status-neutral: #4a5568;
+  --color-status-neutral-bg: #eceff2;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: #16233a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7d3dc;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aebccb;
+}
