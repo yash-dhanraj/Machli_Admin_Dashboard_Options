@@ -179,7 +179,7 @@ export default function ManualNotificationsLayout({ vm }: { vm: ManualNotificati
               </button>
             ) : (
               <button
-                onClick={() => vm.setSent(true)}
+                onClick={() => vm.send()}
                 className="flex items-center gap-1.5 rounded-lg bg-navy-900 px-4 py-2 text-sm font-medium text-white hover:bg-navy-800"
               >
                 Send Notification <Check size={16} />

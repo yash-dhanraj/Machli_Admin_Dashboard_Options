@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { statesDistricts, subDistrictsVillages } from '../data/mockData';
+import { useNotificationHistoryStore } from '../context/NotificationHistoryContext';
+import { formatDateTime } from '../lib/formatDateTime';
+import type { NotificationType } from '../types';
 
 export const MANUAL_NOTIFICATION_STEPS = ['Content', 'Recipients', 'Preview', 'Send'];
 
 export type RecipientMode = 'all' | 'filter';
 
 export function useManualNotification() {
+  const { addNotification } = useNotificationHistoryStore();
   const [step, setStep] = useState(0);
 
   const [title, setTitle] = useState('');
@@ -46,6 +50,25 @@ export function useManualNotification() {
   const onDistrictChange = (v: string) => { setDistrict(v); setSubDistrict(''); setVillage(''); };
   const onSubDistrictChange = (v: string) => { setSubDistrict(v); setVillage(''); };
 
+  const send = () => {
+    const audienceSummary = recipientMode === 'all' ? 'All Applicable Users' : filterSummary.join(', ') || 'All Applicable Users';
+
+    addNotification({
+      id: `NTF-M-${Date.now()}`,
+      source: 'Manual',
+      title,
+      notificationType: notifType as NotificationType,
+      message,
+      location: audienceSummary,
+      state: state || 'All States',
+      district: district || 'All Districts',
+      status: 'Sent',
+      dateTime: formatDateTime(new Date()),
+    });
+
+    setSent(true);
+  };
+
   const reset = () => {
     setSent(false);
     setStep(0);
@@ -72,6 +95,7 @@ export function useManualNotification() {
     districts, subDistricts, villages,
     step1Valid, filterSummary,
     sent, setSent,
+    send,
     reset,
   };
 }

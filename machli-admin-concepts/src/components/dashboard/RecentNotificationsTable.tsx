@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { notifications } from '../../data/mockData';
+import { useNotificationHistoryStore } from '../../context/NotificationHistoryContext';
 import StatusBadge from '../cards/StatusBadge';
 import DataTable, { type Column } from '../tables/DataTable';
 import type { NotificationRecord } from '../../types';
@@ -7,6 +7,7 @@ import type { NotificationRecord } from '../../types';
 export default function RecentNotificationsTable({ limit = 6 }: { limit?: number }) {
   const { option } = useParams<{ option: string }>();
   const navigate = useNavigate();
+  const { notifications } = useNotificationHistoryStore();
   const rows = notifications.slice(0, limit);
 
   const columns: Column<NotificationRecord>[] = [

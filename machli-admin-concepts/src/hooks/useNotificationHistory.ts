@@ -1,8 +1,11 @@
 import { useMemo, useState } from 'react';
-import { notifications, statesDistricts } from '../data/mockData';
+import { statesDistricts } from '../data/mockData';
+import { useNotificationHistoryStore } from '../context/NotificationHistoryContext';
 import type { NotificationRecord } from '../types';
 
 export function useNotificationHistory() {
+  const { notifications } = useNotificationHistoryStore();
+
   const [source, setSource] = useState('');
   const [state, setState] = useState('');
   const [district, setDistrict] = useState('');
@@ -11,8 +14,11 @@ export function useNotificationHistory() {
   const [selected, setSelected] = useState<NotificationRecord | null>(null);
 
   const districts = state ? statesDistricts.find((s) => s.state === state)?.districts ?? [] : [];
-  const dates = useMemo(() => Array.from(new Set(notifications.map((n) => n.dateTime.split(',')[0]))), []);
-  const statuses = Array.from(new Set(notifications.map((n) => n.status)));
+  const dates = useMemo(
+    () => Array.from(new Set(notifications.map((n) => n.dateTime.split(',')[0]))),
+    [notifications],
+  );
+  const statuses = useMemo(() => Array.from(new Set(notifications.map((n) => n.status))), [notifications]);
 
   const filtered = useMemo(
     () =>
@@ -24,7 +30,7 @@ export function useNotificationHistory() {
         if (date && !n.dateTime.startsWith(date)) return false;
         return true;
       }),
-    [source, state, district, status, date],
+    [notifications, source, state, district, status, date],
   );
 
   const groupedByState = useMemo(() => {
@@ -37,11 +43,17 @@ export function useNotificationHistory() {
     return Array.from(map.entries()).map(([state, items]) => ({ state, items }));
   }, [filtered]);
 
-  const bySource = {
-    manual: notifications.filter((n) => n.source === 'Manual').length,
-    incois: notifications.filter((n) => n.source === 'INCOIS').length,
-  };
-  const byStatus = statuses.map((s) => ({ label: s, value: notifications.filter((n) => n.status === s).length }));
+  const bySource = useMemo(
+    () => ({
+      manual: notifications.filter((n) => n.source === 'Manual').length,
+      incois: notifications.filter((n) => n.source === 'INCOIS').length,
+    }),
+    [notifications],
+  );
+  const byStatus = useMemo(
+    () => statuses.map((s) => ({ label: s, value: notifications.filter((n) => n.status === s).length })),
+    [notifications, statuses],
+  );
 
   return {
     source, setSource,
