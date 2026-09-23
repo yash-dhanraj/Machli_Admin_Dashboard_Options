@@ -7,6 +7,7 @@ import QuickActions from '../../components/dashboard/QuickActions';
 import SummaryLinkCard from '../../components/dashboard/SummaryLinkCard';
 import RecentNotificationsTable from '../../components/dashboard/RecentNotificationsTable';
 import { alertsWarnings, oceanStateForecasts } from '../../data/mockData';
+import AppFeedbackOverview from '../../components/dashboard/AppFeedbackOverview';
 
 export default function Option3Dashboard() {
   const verifiedAlerts = alertsWarnings.filter((a) => a.verificationStatus === 'Verified').length;
@@ -44,6 +45,8 @@ export default function Option3Dashboard() {
           ]}
         />
       </div>
+
+      <AppFeedbackOverview />
 
       <RecentNotificationsTable />
     </div>

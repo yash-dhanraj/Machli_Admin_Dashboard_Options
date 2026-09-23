@@ -44,7 +44,7 @@ export default function Sidebar({ open, onClose }: { open: boolean; onClose: () 
               <p className="text-[11px] text-slate-400">Admin Dashboard</p>
             </div>
           </div>
-          <button onClick={onClose} className="rounded-md p-1 text-slate-400 hover:bg-navy-800 hover:text-white lg:hidden">
+          <button onClick={onClose} aria-label="Close sidebar" className="rounded-md p-1 text-slate-400 hover:bg-navy-800 hover:text-white lg:hidden">
             <X size={18} />
           </button>
         </div>
@@ -52,6 +52,7 @@ export default function Sidebar({ open, onClose }: { open: boolean; onClose: () 
         <div className={`border-b border-navy-800 px-5 ${isOpt3 ? 'py-4' : 'py-3'} ${isOpt2 ? 'bg-navy-950/40' : ''}`}>
           <NavLink
             to="/"
+            onClick={onClose}
             className="flex items-center gap-1.5 text-xs font-medium text-slate-400 transition hover:text-teal-400"
           >
             <ArrowLeft size={13} /> Back to Design Options
@@ -78,6 +79,7 @@ export default function Sidebar({ open, onClose }: { open: boolean; onClose: () 
                     <li key={item.label}>
                       <NavLink
                         to={to}
+                        onClick={onClose}
                         end={item.path === ''}
                         className={({ isActive }) =>
                           `flex items-center gap-2.5 rounded-lg ${itemPadding} text-sm transition ${

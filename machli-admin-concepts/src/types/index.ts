@@ -1,5 +1,42 @@
 export type OptionId = 'option-1' | 'option-2' | 'option-3';
 
+export type FeedbackSource = 'Google Play' | 'Machli App';
+
+interface FeedbackBase {
+  id: string;
+  user: string;
+  message: string;
+  appVersion: string;
+  submittedDate: string; // ISO date, for filtering and chronological ordering
+}
+
+export interface PlayStoreReview extends FeedbackBase {
+  source: 'Google Play';
+  rating: 1 | 2 | 3 | 4 | 5;
+  language: string;
+  developerReply?: string;
+}
+
+export interface InAppFeedback extends FeedbackBase {
+  source: 'Machli App';
+  userId: string; // References an existing illustrative Machli user
+}
+
+export type FeedbackRecord = PlayStoreReview | InAppFeedback;
+
+export interface PlayStoreOverview {
+  source: 'Google Play';
+  currentVersion: string;
+  releaseStatus: string;
+  lastUpdated: string;
+  monthlyActiveUsers: number;
+  dailyActiveUsers: number;
+  installedAudience: number;
+  totalInstalls: number;
+  rating: number;
+  ratingDistribution: { stars: number; count: number }[];
+}
+
 export type VerificationStatus = 'Pending Verification' | 'Verified' | 'Mismatch / Not Verified';
 
 export type NotificationSource = 'Manual' | 'INCOIS';

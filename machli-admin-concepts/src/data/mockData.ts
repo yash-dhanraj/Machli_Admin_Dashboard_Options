@@ -14,6 +14,9 @@ import type {
   StateDistrict,
   SubDistrictVillage,
   UserRecord,
+  PlayStoreOverview,
+  PlayStoreReview,
+  InAppFeedback,
 } from '../types';
 
 // ---------------------------------------------------------------------------
@@ -475,3 +478,58 @@ export const adminProfile = {
   role: 'Platform Administrator',
   lastLogin: '22 Sep 2026, 09:04 AM',
 };
+
+// App & Feedback is a read-only illustration. No Play Console or backend calls.
+// The recent collections cover 16–22 Sep 2026; their counts are derived by consumers.
+export const playStoreOverview: PlayStoreOverview = {
+  source: 'Google Play',
+  currentVersion: '2.4.1',
+  releaseStatus: 'Production',
+  lastUpdated: '18 Sep 2026',
+  monthlyActiveUsers: 8420,
+  dailyActiveUsers: 1260,
+  installedAudience: 11850,
+  totalInstalls: 25000,
+  rating: 4.3,
+  // Illustrative store-wide ratings, distinct from the recent written reviews below.
+  ratingDistribution: [
+    { stars: 5, count: 60 }, { stars: 4, count: 20 }, { stars: 3, count: 12 },
+    { stars: 2, count: 6 }, { stars: 1, count: 2 },
+  ],
+};
+
+export const playStoreReviews: PlayStoreReview[] = [
+  { id: 'PLAY-001', source: 'Google Play', user: 'Ramesh', message: 'Very useful for sea forecast.', rating: 5, appVersion: '2.4.1', submittedDate: '2026-09-22', language: 'English', developerReply: 'Thank you for sharing your feedback on the forecast.' },
+  { id: 'PLAY-002', source: 'Google Play', user: 'Suresh', message: 'Tide information is useful.', rating: 4, appVersion: '2.4.0', submittedDate: '2026-09-21', language: 'English' },
+  { id: 'PLAY-003', source: 'Google Play', user: 'Meena', message: 'The latest update makes advisories easier to read.', rating: 5, appVersion: '2.4.1', submittedDate: '2026-09-22', language: 'English' },
+  { id: 'PLAY-004', source: 'Google Play', user: 'Arun', message: 'Forecast takes a little time to open on a slow connection.', rating: 3, appVersion: '2.4.1', submittedDate: '2026-09-22', language: 'English', developerReply: 'Thank you for describing the loading experience. We have noted your feedback.' },
+  { id: 'PLAY-005', source: 'Google Play', user: 'Kavitha', message: 'Helpful to have the helpline numbers in one place.', rating: 5, appVersion: '2.4.1', submittedDate: '2026-09-21', language: 'English' },
+  { id: 'PLAY-006', source: 'Google Play', user: 'Joseph', message: 'Clear alerts and an easy to use home screen.', rating: 4, appVersion: '2.4.1', submittedDate: '2026-09-21', language: 'English' },
+  { id: 'PLAY-007', source: 'Google Play', user: 'Bala', message: 'Would like larger text in the advisory details.', rating: 3, appVersion: '2.4.0', submittedDate: '2026-09-20', language: 'English' },
+  { id: 'PLAY-008', source: 'Google Play', user: 'Anita', message: 'Useful information about government schemes.', rating: 5, appVersion: '2.4.1', submittedDate: '2026-09-20', language: 'English' },
+  { id: 'PLAY-009', source: 'Google Play', user: 'Manoj', message: 'The fishing zone screen did not load on my first attempt.', rating: 2, appVersion: '2.4.0', submittedDate: '2026-09-20', language: 'English' },
+  { id: 'PLAY-010', source: 'Google Play', user: 'Deepa', message: 'The new version is simple to navigate.', rating: 4, appVersion: '2.4.1', submittedDate: '2026-09-19', language: 'English' },
+  { id: 'PLAY-011', source: 'Google Play', user: 'Ravi', message: 'Marine advisories are presented clearly.', rating: 5, appVersion: '2.4.1', submittedDate: '2026-09-19', language: 'English' },
+  { id: 'PLAY-012', source: 'Google Play', user: 'Asha', message: 'Please make the forecast text easier to zoom.', rating: 4, appVersion: '2.4.1', submittedDate: '2026-09-19', language: 'English' },
+  { id: 'PLAY-013', source: 'Google Play', user: 'Naveen', message: 'Good overview of nearby landing centres.', rating: 5, appVersion: '2.4.1', submittedDate: '2026-09-18', language: 'English' },
+  { id: 'PLAY-014', source: 'Google Play', user: 'Priya', message: 'Useful app, but some screens load slowly.', rating: 3, appVersion: '2.4.0', submittedDate: '2026-09-18', language: 'English' },
+  { id: 'PLAY-015', source: 'Google Play', user: 'Kiran', message: 'The tide timings are easy to find.', rating: 4, appVersion: '2.4.0', submittedDate: '2026-09-17', language: 'English' },
+  { id: 'PLAY-016', source: 'Google Play', user: 'Latha', message: 'A helpful collection of marine information.', rating: 5, appVersion: '2.4.0', submittedDate: '2026-09-17', language: 'English' },
+  { id: 'PLAY-017', source: 'Google Play', user: 'Sanjay', message: 'I could not open the forecast screen after updating.', rating: 1, appVersion: '2.4.0', submittedDate: '2026-09-16', language: 'English' },
+  { id: 'PLAY-018', source: 'Google Play', user: 'Mary', message: 'The safety alerts are useful and easy to understand.', rating: 4, appVersion: '2.4.0', submittedDate: '2026-09-16', language: 'English' },
+];
+
+export const inAppFeedback: InAppFeedback[] = [
+  { id: 'APP-001', source: 'Machli App', userId: 'USR-0001', user: 'Ramesh Kumar Nadar', message: 'PFZ map is loading slowly.', appVersion: '2.4.1', submittedDate: '2026-09-22' },
+  { id: 'APP-002', source: 'Machli App', userId: 'USR-0002', user: 'Devendra Bhai Solanki', message: 'Please make the forecast message text larger.', appVersion: '2.4.1', submittedDate: '2026-09-22' },
+  { id: 'APP-003', source: 'Machli App', userId: 'USR-0003', user: 'Muthu Selvam R', message: 'The tide information is easy to locate.', appVersion: '2.4.1', submittedDate: '2026-09-21' },
+  { id: 'APP-004', source: 'Machli App', userId: 'USR-0004', user: 'Appalaraju Ch.', message: 'Would like a clearer heading for the fishing zone advisory.', appVersion: '2.4.1', submittedDate: '2026-09-21' },
+  { id: 'APP-005', source: 'Machli App', userId: 'USR-0005', user: 'Ganesh Shetty', message: 'Landing centre links are helpful.', appVersion: '2.4.1', submittedDate: '2026-09-20' },
+  { id: 'APP-006', source: 'Machli App', userId: 'USR-0006', user: 'Vinayak Patil', message: 'Please show advisory validity more prominently.', appVersion: '2.4.1', submittedDate: '2026-09-20' },
+  { id: 'APP-007', source: 'Machli App', userId: 'USR-0007', user: 'Bijay Kumar Behera', message: 'Government scheme details are useful.', appVersion: '2.4.0', submittedDate: '2026-09-19' },
+  { id: 'APP-008', source: 'Machli App', userId: 'USR-0008', user: 'Francis D Souza', message: 'Helpline information is easy to find.', appVersion: '2.4.1', submittedDate: '2026-09-19' },
+  { id: 'APP-009', source: 'Machli App', userId: 'USR-0001', user: 'Ramesh Kumar Nadar', message: 'The forecast screen could use a larger date label.', appVersion: '2.4.0', submittedDate: '2026-09-18' },
+  { id: 'APP-010', source: 'Machli App', userId: 'USR-0003', user: 'Muthu Selvam R', message: 'Please improve readability of longer safety messages.', appVersion: '2.4.0', submittedDate: '2026-09-18' },
+  { id: 'APP-011', source: 'Machli App', userId: 'USR-0005', user: 'Ganesh Shetty', message: 'Saved locations make it easier to return to my area.', appVersion: '2.4.0', submittedDate: '2026-09-17' },
+  { id: 'APP-012', source: 'Machli App', userId: 'USR-0008', user: 'Francis D Souza', message: 'Would like clearer spacing between tide timings.', appVersion: '2.4.0', submittedDate: '2026-09-16' },
+];

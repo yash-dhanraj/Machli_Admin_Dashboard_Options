@@ -6,6 +6,7 @@ import IncoisQueueList from '../../components/dashboard/IncoisQueueList';
 import LocationSummary from '../../components/dashboard/LocationSummary';
 import RecentNotificationsTable from '../../components/dashboard/RecentNotificationsTable';
 import { kpis } from '../../data/mockData';
+import AppFeedbackOverview from '../../components/dashboard/AppFeedbackOverview';
 
 function CompactKpi({ label, value, icon: Icon }: { label: string; value: string | number; icon: typeof Users }) {
   return (
@@ -53,6 +54,8 @@ export default function Option2Dashboard() {
       </div>
 
       <LocationSummary />
+
+      <AppFeedbackOverview />
 
       <RecentNotificationsTable />
     </div>

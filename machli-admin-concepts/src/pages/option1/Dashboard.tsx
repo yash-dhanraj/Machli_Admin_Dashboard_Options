@@ -7,6 +7,7 @@ import UserOverviewCharts from '../../components/dashboard/UserOverviewCharts';
 import MachliInfoGrid from '../../components/dashboard/MachliInfoGrid';
 import RecentNotificationsTable from '../../components/dashboard/RecentNotificationsTable';
 import { kpis } from '../../data/mockData';
+import AppFeedbackOverview from '../../components/dashboard/AppFeedbackOverview';
 
 export default function Option1Dashboard() {
   return (
@@ -27,6 +28,8 @@ export default function Option1Dashboard() {
       </div>
 
       <UserOverviewCharts />
+
+      <AppFeedbackOverview />
 
       <MachliInfoGrid />
 

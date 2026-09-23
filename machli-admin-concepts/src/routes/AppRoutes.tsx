@@ -15,6 +15,9 @@ import GovernmentSchemes from '../pages/shared/GovernmentSchemes';
 import LandingCentres from '../pages/shared/LandingCentres';
 import ReferenceData from '../pages/shared/ReferenceData';
 import Settings from '../pages/shared/Settings';
+import PlayStoreOverview from '../pages/shared/PlayStoreOverview';
+import UserFeedback from '../pages/shared/UserFeedback';
+import UserFeedbackDetail from '../pages/shared/UserFeedbackDetail';
 
 export default function AppRoutes() {
   return (
@@ -38,6 +41,9 @@ export default function AppRoutes() {
         <Route path="reference-data/sub-districts-villages" element={<ReferenceData section="sub-districts-villages" />} />
         <Route path="reference-data/occupations" element={<ReferenceData section="occupations" />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="play-store" element={<PlayStoreOverview />} />
+        <Route path="user-feedback" element={<UserFeedback />} />
+        <Route path="user-feedback/:id" element={<UserFeedbackDetail />} />
       </Route>
 
       <Route

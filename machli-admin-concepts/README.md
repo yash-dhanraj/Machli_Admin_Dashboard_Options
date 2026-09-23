@@ -34,6 +34,28 @@ statistics.
 
 No paid libraries and no API keys are required.
 
+## App & Feedback
+
+The second-last sidebar section, immediately before System, contains **Play Store
+Overview** (`/:option/play-store`) and **User Feedback** (`/:option/user-feedback`).
+All three dashboards include a secondary App & Feedback Overview below operational
+content. The existing Registered Users KPI remains separate from Google Play active
+user metrics.
+
+The shared `src/data/mockData.ts` collections `playStoreOverview`,
+`playStoreReviews`, and `inAppFeedback` are deterministic illustrative data. The
+recent sample includes 18 Google Play reviews and 12 Machli App feedback records
+from 16–22 Sep 2026. Counts and recent-review averages derive from these collections;
+the 4.3 store-wide rating and its distribution are a separate illustrative dataset.
+Every metric identifies its source. There are no live integrations, feedback creation
+actions, or reply actions.
+
+User Feedback supports source tabs and source, date, rating, and version filters.
+Rating filters apply only to Google Play. Read-only detail pages
+(`/:option/user-feedback/:id`) show source-specific fields. In-app location context
+comes only from linked existing mock user profiles; Google Play reviewers have no
+invented location or Machli account association.
+
 ## Installation
 
 ```bash

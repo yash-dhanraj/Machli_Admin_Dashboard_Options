@@ -13,6 +13,8 @@ import {
   Briefcase,
   Settings,
   LayoutDashboard,
+  Smartphone,
+  MessageSquare,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -66,6 +68,13 @@ export const navGroups: NavGroup[] = [
       { label: 'States & Districts', path: 'reference-data/states-districts', icon: Map },
       { label: 'Sub-Districts & Villages', path: 'reference-data/sub-districts-villages', icon: MapPinned },
       { label: 'Occupations', path: 'reference-data/occupations', icon: Briefcase },
+    ],
+  },
+  {
+    label: 'App & Feedback',
+    items: [
+      { label: 'Play Store Overview', path: 'play-store', icon: Smartphone },
+      { label: 'User Feedback', path: 'user-feedback', icon: MessageSquare },
     ],
   },
   {
